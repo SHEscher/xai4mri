@@ -1,0 +1,156 @@
+# Settings for the MkDocs documentation site generator.
+site_name: xai4mri  # Sets the name of the site.
+site_description: xai4mri is designed for advanced MRI analysis and interpretation using deep learning combined with explainable A.I. (XAI).
+# site_url: https://SHEscher.github.io/xai4mri # base URL of docs site.
+repo_url: https://github.com/SHEscher/xai4mri
+repo_name: SHEscher/xai4mri  # specifies the name of the repo where the source code for the documentation site is hosted.
+site_dir: "site"  # Sets the directory where the site will be built.
+watch: [mkdocs.yml, README.md, src/xai4mri]  # Sets the files to watch for changes.
+
+# Sets the validation options for the site.
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+
+# Sets the navigation structure of the site
+nav:  # Files are relative to docs/
+- Home:
+  - xai4mri overview : index.md
+  - License: license.md
+- Code:
+  - API reference: reference/
+  # - Notebooks: notebooks/  # this lists all notebooks in the folder. TODO: try symlink to root/examples/notebooks/
+  - Development:
+    # - Coverage report: coverage.md
+    - Changelog: changelog.md
+    - Contributing: contributing.md`
+
+# Sets the theme of the site.
+theme:
+  name: material  # readthedocs
+  logo: brain.svg # project logo (use: *.svg or *.png)
+  # custom_dir: docs/custom_dir # add subfolder to overwrite
+  features:
+  - announce.dismiss  # Allows users to dismiss announcement banners or messages.
+  - content.action.edit  # Provides a button or link to edit the current page's source code.
+  - content.action.view  # Provides a button or link to view the current page's source code.
+  - content.code.annotate  # Allows users to add annotations or comments to code blocks.
+  - content.code.copy  # Provides a button or link to copy code blocks to the clipboard.
+  - content.tooltips  # Displays tooltips when hovering over certain elements.
+  - navigation.expand  # Allows users to expand or collapse navigation menus.
+  - navigation.footer  # Displays a footer at the bottom of the page.
+  - navigation.indexes  # Displays an index or table of contents for the current page.
+  - navigation.sections  # Displays a list of sections or headings for the current page.
+  - navigation.tabs  # Displays tabs for navigating between pages or sections.
+  - navigation.tabs.sticky  # Makes the navigation tabs sticky or fixed to the top of the page.
+  - navigation.top  # Provides a button or link to scroll to the top of the page.
+  - search.highlight  # Highlights search results on the page.
+  - search.suggest  # Provides suggestions or autocomplete for search queries.
+  - toc.follow  # Automatically scrolls the table of contents to the current section or heading.
+  palette:  # Sets the color palette of the site.
+  - media: "(prefers-color-scheme)"
+    toggle:
+      icon: material/brightness-auto
+      name: Switch to light mode
+  - media: "(prefers-color-scheme: light)"
+    scheme: default
+    primary: teal
+    accent: purple
+    toggle:
+      icon: material/weather-sunny
+      name: Switch to dark mode
+  - media: "(prefers-color-scheme: dark)"
+    scheme: slate
+    primary: black
+    accent: amber
+    toggle:
+      icon: material/weather-night
+      name: Switch to system preference
+
+# Sets the extra CSS files to include in the site.
+#   (addition to default styles provided by the MkDocs theme)
+extra_css:
+- css/style.css
+- css/material.css
+- css/mkdocstrings.css
+
+# Sets the markdown extensions to use in the site.
+markdown_extensions:
+- attr_list  # Allows you to add attributes to headers, paragraphs, and other elements in Markdown.
+- admonition  # Adds admonition blocks, which are like callout boxes that highlight important information.
+- callouts  # Adds callouts, which are like numbered annotations that can be used to highlight specific parts of a document.
+- footnotes  # Adds support for footnotes in Markdown.
+- pymdownx.emoji:  # Adds support for emojis in Markdown, using the Twemoji library and converting them to SVGs.
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+- pymdownx.details  # Adds support for details/summary blocks, which are like collapsible sections that can be toggled open and closed.
+- pymdownx.magiclink  # Automatically converts URLs and email addresses to clickable links.
+- pymdownx.snippets:  # Allows you to include code snippets from external files in your Markdown documents.
+    check_paths: true
+- pymdownx.superfences  # Adds support for fenced code blocks with syntax highlighting and line numbers.
+- pymdownx.tabbed:  # Adds support for tabbed content, which allows you to organize content into tabs.
+    alternate_style: true
+    slugify: !!python/object/apply:pymdownx.slugs.slugify
+      kwds:
+        case: lower
+- pymdownx.tasklist: # Adds support for task lists, which are like checkboxes that can be used to track progress.
+    custom_checkbox: true
+- pymdownx.tilde  # Adds support for strikethrough text in Markdown.
+- toc:  # Adds a table of contents to your Markdown documents, with permalinks to each section.
+    permalink: "⛺︎"  # "❀"
+
+# Sets the plugins to use in the site.
+plugins:
+- search
+- markdown-exec
+- gen-files:
+    scripts:
+    - scripts/gen_ref_nav.py
+- literate-nav:
+    nav_file: SUMMARY.txt  # README.md
+    implicit_index: true
+- autorefs
+- coverage:
+    page_name: coverage  # default
+    html_report_dir: tests/coverage_html_report  # default htmlcov
+- mkdocstrings:
+    handlers:
+      python:
+        import:
+        - https://docs.python.org/3/objects.inv
+        - https://installer.readthedocs.io/en/stable/objects.inv  # demonstration purpose in the docs
+        - https://mkdocstrings.github.io/autorefs/objects.inv
+        paths: [src]
+        options:
+          docstring_options:
+            ignore_init_summary: false
+          docstring_section_style: table  # spacy, table, list
+          docstring_style: sphinx
+          filters: ["!^_"]
+          heading_level: 1
+          inherited_members: true
+          merge_init_into_class: true
+          separate_signature: true
+          show_root_heading: true
+          show_root_full_path: false
+          show_signature_annotations: true
+          show_symbol_type_heading: true
+          show_symbol_type_toc: true
+          signature_crossrefs: true
+          summary: true
+- minify:  # minified: all unnecessary white-space & comments will be removed to reduce the file size
+    minify_html: !ENV [DEPLOY, false]
+- redirects:  # redirecting old URLs to new ones
+    redirect_maps:
+  #     'old.md': 'new.md'
+  #     'old/file.md': 'new/file.md'
+  #     'some_file.md': 'http://external.url.com/foobar'
+#- bibtex:  # https://github.com/shyamd/mkdocs-bibtex/
+#    bib_file: cite/xai4mri.bib  # path or url to single *.bib file. Path can be absolute or relative to mkdocs.yml.
+#    bib_dir: cite  # dir for *.bib files to load, same as above for path resolution
+#    csl_file: https://raw.githubusercontent.com/citation-style-language/styles/master/apa-eu.csl
+#    cite_inline: true
+#    bib_by_default: true
+#    bib_command: \bibliography
+#    full_bib_command: \fullbibliography

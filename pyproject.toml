@@ -1,0 +1,281 @@
+[project]
+name = "xai4mri"
+version = "0.0.0"
+description = "xai4mri is designed for advanced MRI analysis and interpretation using deep learning combined with explainable A.I. (XAI)."
+readme = "README.md"
+requires-python = ">=3.8, <3.12"
+license = { file = "LICENSE" }
+keywords = [
+    "transfer-learning",
+    "xai",
+    "explainable-ai",
+    "explanation",
+    "interpretation",
+    "prediction",
+    "MRI",
+    "sMRI",
+    "3D-conv",
+    "deep-learning",
+    "structure",
+    "brain",
+    "t1w",
+    "flair",
+    "swi",
+    "dwi",
+]
+authors = [
+    { name = "Simon M. Hofmann", email = "simon.hofmann@pm.me" },
+]
+maintainers = [
+    { name = "Simon M. Hofmann", email = "simon.hofmann@pm.me" },
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+
+dependencies = [
+    "antspyx>=0.4.2, <0.5.0",
+    "innvestigate>=2.1.2, <3.0.0",
+    "nilearn>=0.10, <1.0",
+    "tensorflow>=2.6, <2.15",
+    "tqdm>=4.64, <5.0",
+]
+
+[project.optional-dependencies]
+develop = [
+    "bumpver==2023.1129",
+    "ruff>=0.6.3, <1.0.0",  # including format
+    "tox>=4.18.0, <5.0.0",
+    "pre-commit>=3.8.0, <4.0.0",
+    "pytest>=8.3.2, <9.0.0",
+    "pytest-cov>=5.0.0, <6.0.0",
+]
+
+docs = [
+    "blacken-docs>=1.13, <2.0",
+    "docutils>=0.20.1, <1.0.0",
+    "markdown-callouts>=0.2, <1.0.0",
+    "markdown-exec[ansi]>=0.5, <1.0",
+    "mkdocs>=1.5, <2.0",
+    "mkdocs-autorefs>=0.5.0, <1.0.0",
+    "mkdocs-bibtex>=2.11.0, <3.0.0",
+    "mkdocs-coverage>=0.2, <1.0",
+    "mkdocs-gen-files>=0.3, <1.0",
+    # "mkdocs-git-committers-plugin-2>=1.1",
+    "mkdocs-jupyter>=0.24.6, <1.0.0",
+    "mkdocs-literate-nav>=0.4, <1.0",
+    "mkdocs-material>=7.3, <8.0",
+    "mkdocs-material-extensions",
+    "mkdocs-minify-plugin>=0.6.4, <1.0.0",
+    "mkdocs-redirects>=1.2.0, <2.0.0",
+    "mkdocstrings[python]",  # add language-specific extensions
+    "pypandoc>=1.12, <2.0",  # if issue: install via conda install -c conda-forge pypandoc
+]
+
+[project.urls]
+# homepage = "..."  # TODO: adapt
+# documentation = "..."  # TODO: adapt
+repository = "https://github.com/SHEscher/xai4mri"
+# changelog = "..." # TODO: adapt
+
+
+[tool.setuptools]
+platforms = ["unix", "linux", "osx", "cygwin", "win32"]
+zip-safe = false
+
+# # To automatically find the package(s) (Beta feature (Oct, 2022)):
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["xai4mri", "xai4mri.*"]
+exclude = ["tests"]
+
+[options.package_data]
+testproject = "py.typed"
+
+[build-system]
+requires = ["setuptools>=65", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+#addopts = "--cov=xai4mri"
+testpaths = ["tests"]
+
+[tool.mypy]
+mypy_path = "src"
+check_untyped_defs = true
+disallow_any_generics = true
+ignore_missing_imports = true
+no_implicit_optional = true
+show_error_codes = true
+strict_equality = true
+warn_redundant_casts = true
+warn_return_any = true
+warn_unreachable = true
+warn_unused_configs = true
+no_implicit_reexport = true
+
+[tool.coverage.run]
+data_file = "tests/.coverage"
+
+[tool.coverage.report]
+exclude_lines = ["if __name__ == .__main__.:", "if TYPE_CHECKING:", "@abstract"]
+
+[tool.coverage.html]
+directory = "tests/coverage_html_report"
+
+[tool.ruff]
+# Select rules / linters to apply
+lint.select = [   # add /comment-out rules (the list below does not contain all rulles)
+    # "ALL", # all rules
+    "D",  # pydocstyle
+    "E", # pycodestyle [default]
+    "F",  # Pyflakes [default]
+    "I",  # isort imports
+    "RUF",  # ruff specific
+    "UP",  # pyupgrade [default]
+    "W",  # pycodestyle: warning
+    "C90", # mccabe
+    "N", # pep8-naming
+    "ANN", # flake8-annotations (toggle on if you intend to work with type annotations)
+    "S", # flake8-bandit
+    "BLE", # flake8-blind-except
+    "B", # flake8-bugbear
+    "A", # flake8-builtins
+    "COM", # flake8-commas
+    "C4", # flake8-comprehensions
+    # "EM", # flake8-errmsg
+    "FA", # flake8-future-annotations (see ANN above)
+    "ISC", # flake8-implicit-str-concat
+    # "ICN", # flake8-import-conventions
+    "G", # flake8-logging-format
+    "INP", # flake8-no-pep420
+    "PT", # flake8-pytest-style
+    "Q", # flake8-quotes
+    "RET", # flake8-return
+    "SIM", # flake8-simplify
+    "TCH", # flake8-type-checking
+    "ARG", # flake8-unused-arguments
+    "PTH", # flake8-use-pathlib
+    "TD", # flake8-todos
+    "FIX", # flake8-fixme
+    "ERA", # eradicate
+    "PD", # pandas-vet
+    "PL", # Pylint
+    "NPY", # NumPy-specific rules
+]  # run `ruff linter` to see all rules
+fix = false  # true: Ruff will try to fix errors automatically
+# List of rules to consider non-autofix-able.
+lint.unfixable = [  # either with fix = true or when `ruff . --fix` is executed
+    "ERA001",  # found commented-out code
+    "F401",  # unused imports
+    # "RUF100", # `noqa` directives that are no longer applicable
+]
+# Ignore specific rules or the whole set of a rule
+lint.ignore = [
+    "ANN003",  # flake8-annotations: Missing type annotation for **kwargs
+    "ANN101",  # flake8-annotations: Missing type annotation for self in method
+    "ANN102",  # flake8-annotations: Missing type annotation for cls in classmethod
+    "ANN401",  # flake8-annotations: Any
+    "COM812",  # Trailing comma missing
+    "D203",  # 1 blank line required before class docstring: incompatible with D211 (=no blank line required)
+    "D212",   # multi-line-summary-first-line incompatible with D213 (=should start at second line)
+    "DTZ005",  # timezone-naive datetime
+    "E402",  # Module level import not at the top of file (covert by ISORT)
+    # "E501", # Ignore line-length since we use 119
+    # "ERA001", # Found commented-out code
+    "ISC001", # single-line-implicit-string-concatenation [is in conflict with `ruff format`]
+    "S301",  # suspicious-pickle-usage
+    "TD002",  # Missing author in To-Do
+    "TD003",  # Missing issue link on the line following a To-Do
+]
+# lint.ignore-init-module-imports = true # void automatically removing unused imports in __init__.py [deprecated]
+respect-gitignore = true  # files and folder ignored in gitignore are ignore by ruff as well [default: true]
+src = ["src/xai4mri", "tests"]
+
+# Exclude a variety of commonly ignored directories.
+include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
+extend-exclude = ["data"]
+line-length = 119 # Same as flake8 and black
+target-version = "py38" # assume Python >= 3.8
+output-format = "concise" # "full", "concise", OR "grouped"
+preview = false  # true: Ruff will use unstable rules and fixes
+
+[tool.ruff.lint.extend-per-file-ignores]
+# Ignore specific rules in specific files
+"__init__.py" = ["F401", "D104"]
+"*.ipynb" = ["D100"]  # ignore docsstring in notebooks
+"tests/*.py" = ["S101", "D103", "PLC2701"]  # ignore assert statements, and private objects in tests
+
+[tool.ruff.format]
+docstring-code-format = true  # default: false
+preview = true  # true: Ruff will use unstable rules and fixes
+
+[tool.ruff.lint.flake8-annotations]
+allow-star-arg-any = true
+ignore-fully-untyped = true
+suppress-none-returning = true
+
+[tool.ruff.lint.flake8-comprehensions]
+allow-dict-calls-with-keyword-arguments = true
+
+[tool.ruff.lint.isort]
+known-local-folder = ["src/xai4mri"]
+# known-first-party = ...
+
+[tool.ruff.lint.mccabe]
+# Flag errors (`C901`) whenever the complexity level exceeds x.
+max-complexity = 20  # default x: 10
+
+[tool.ruff.lint.pep8-naming]
+ignore-names = []  # fill with specific class, function, variable names
+
+[tool.ruff.lint.pydocstyle]
+# convention = "google"  # "numpy", "pep257"
+
+[tool.ruff.lint.pylint]
+# Flag errors (`PLR*`) w.r.t. complexity levels
+max-args = 15  # default: 5
+max-branches = 20  # default: 12
+max-returns = 6  # default: 6
+max-statements = 70  # default: 50
+max-locals = 19
+# allow-magic-value-types = ["int"]
+
+[tool.black]
+line-length = 119
+target-version = ["py38", "py39", "py310", "py311"]
+src = [
+    "src/xai4mri",
+    "tests",
+]
+include = '(\.pyi?|\.ipynb)$'
+exclude = '''  # A regex preceded with ^/ will apply only to files and directories in the root of the project.
+(
+  ^/models
+  | ^/data
+  | /*/\..*  # ignore (hidden) files in hidden directories
+)
+'''
+
+# For instance, run in shell: bumpver update --patch --no-fetch --dry
+[tool.bumpver]
+current_version = "0.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+pre_commit_hook = "scripts/badge.sh"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['^version = "{version}"', 'current_version = "{version}"']
+"src/xai4mri/__init__.py" = ['^__version__ = "{version}"']
+"README.md" = ['version-v.{version}']
