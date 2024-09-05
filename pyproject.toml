@@ -81,10 +81,9 @@ docs = [
 ]
 
 [project.urls]
-# homepage = "..."  # TODO: adapt
-# documentation = "..."  # TODO: adapt
+documentation = "https://shescher.github.io/xai4mri/"
 repository = "https://github.com/SHEscher/xai4mri"
-# changelog = "..." # TODO: adapt
+changelog = "https://shescher.github.io/xai4mri/changelog/"
 
 
 [tool.setuptools]
