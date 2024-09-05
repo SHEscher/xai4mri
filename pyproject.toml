@@ -1,7 +1,7 @@
 [project]
 name = "xai4mri"
 version = "0.0.0"
-description = "xai4mri is designed for advanced MRI analysis and interpretation using deep learning combined with explainable A.I. (XAI)."
+description = "xai4mri is designed for advanced MRI analysis using deep learning combined with explainable A.I. (XAI)."
 readme = "README.md"
 requires-python = ">=3.8, <3.12"
 license = { file = "LICENSE" }

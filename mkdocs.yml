@@ -1,6 +1,6 @@
 # Settings for the MkDocs documentation site generator.
 site_name: xai4mri  # Sets the name of the site.
-site_description: xai4mri is designed for advanced MRI analysis and interpretation using deep learning combined with explainable A.I. (XAI).
+site_description: xai4mri is designed for advanced MRI analysis using deep learning combined with explainable A.I. (XAI).
 site_url: https://shescher.github.io/xai4mri # base URL of docs site.
 repo_url: https://github.com/SHEscher/xai4mri # URL of the repository where the source code for the documentation site is hosted.
 repo_name: SHEscher/xai4mri  # specifies the name of the repo where the source code for the documentation site is hosted.

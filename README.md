@@ -13,7 +13,7 @@
 
 ## Project description
 
-**xai4mri** is designed for advanced MRI analysis and interpretation combining deep learning with explainable A.I. (XAI). It offers the following key functionalities:
+**xai4mri** is designed for advanced MRI analysis combining deep learning with explainable A.I. (XAI). It offers the following key functionalities:
 
 - **Model Loading**: load (pretrained) 3D-convolutional neural network models tailored for MRI predictions.
 - **Data Integration**: Effortlessly import new MRI datasets and apply the models to generate accurate predictions.
