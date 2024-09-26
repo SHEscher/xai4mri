@@ -1,6 +1,6 @@
 [project]
 name = "xai4mri"
-version = "0.0.0"
+version = "0.0.1"
 description = "xai4mri is designed for advanced MRI analysis using deep learning combined with explainable A.I. (XAI)."
 readme = "README.md"
 requires-python = ">=3.9, <3.12"  # TODO: to update to 3.12, but first iNNvestigate would need to be updated
@@ -261,7 +261,7 @@ exclude = '''  # A regex preceded with ^/ will apply only to files and directori
 
 # For instance, run in shell: bumpver update --patch --no-fetch --dry
 [tool.bumpver]
-current_version = "0.0.0"
+current_version = "0.0.1"
 version_pattern = "MAJOR.MINOR.PATCH"
 pre_commit_hook = "scripts/badge.sh"
 commit_message = "bump version {old_version} -> {new_version}"

@@ -7,7 +7,7 @@ This package provides tools for explainable AI (XAI) in MRI research using deep 
     Years: 2023-2024
 """
 
-__version__ = "0.0.0"
+__version__ = "0.0.1"
 __author__ = "Simon M. Hofmann"
 
 from . import dataloader, model, utils, visualizer
