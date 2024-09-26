@@ -3,7 +3,7 @@ name = "xai4mri"
 version = "0.0.0"
 description = "xai4mri is designed for advanced MRI analysis using deep learning combined with explainable A.I. (XAI)."
 readme = "README.md"
-requires-python = ">=3.8, <3.12"
+requires-python = ">=3.9, <3.12"  # TODO: to update to 3.12, but first iNNvestigate would need to be updated
 license = { file = "LICENSE" }
 keywords = [
     "transfer-learning",
@@ -31,55 +31,55 @@ classifiers = [
     "Natural Language :: English",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
 ]
 
 dependencies = [
-    "antspyx>=0.4.2, <0.5.0",
-    "innvestigate>=2.1.2, <3.0.0",
+    "antspyx>=0.4.2, <0.5.0",  # TODO: to update to 0.5.* solve issue with ants.from_nibabel()
+    "innvestigate>=2.1.1, <3.0.0",
     "nilearn>=0.10, <1.0",
-    "tensorflow>=2.6, <2.15",
-    "tqdm>=4.64, <5.0",
+    "tensorflow>=2.6, <2.15", # TODO: 2.15 not tested yet, iNNvestigate would need to be updated
+    "tqdm>=4.66.5, <5.0",
 ]
 
 [project.optional-dependencies]
 develop = [
     "bumpver==2023.1129",
-    "ruff>=0.6.3, <1.0.0",       # including format
-    "tox>=4.18.0, <5.0.0",
+    "ruff>=0.6.8, <1.0.0",        # including format
+    "tox>=4.20.0, <5.0.0",
     "pre-commit>=3.8.0, <4.0.0",
-    "pytest>=8.3.2, <9.0.0",
+    "pytest>=8.3.3, <9.0.0",
     "pytest-cov>=5.0.0, <6.0.0",
 ]
 
 docs = [
-    "blacken-docs>=1.13, <2.0",
-    "docutils>=0.20.1, <1.0.0",
-    "markdown-callouts>=0.2, <1.0.0",
-    "markdown-exec[ansi]>=0.5, <1.0",
+    "blacken-docs>=1.16, <2.0",
+    "docutils>=0.21.1, <1.0.0",
+    "markdown-callouts>=0.3.0, <1.0.0",
+    "markdown-exec[ansi]>=1.7.0, <2.0.0",
     "mkdocs>=1.5, <2.0",
     "mkdocs-autorefs>=0.5.0, <1.0.0",
     "mkdocs-bibtex>=2.11.0, <3.0.0",
-    "mkdocs-coverage>=0.2, <1.0",
-    "mkdocs-gen-files>=0.3, <1.0",
+    "mkdocs-coverage>=1.0.0, <2.0.0",
+    "mkdocs-gen-files>=0.5.0, <1.0",
     # "mkdocs-git-committers-plugin-2>=1.1",
     "mkdocs-jupyter>=0.24.6, <1.0.0",
-    "mkdocs-literate-nav>=0.4, <1.0",
-    "mkdocs-material>=7.3, <8.0",
-    "mkdocs-material-extensions",
-    "mkdocs-minify-plugin>=0.6.4, <1.0.0",
-    "mkdocs-redirects>=1.2.0, <2.0.0",
+    "mkdocs-literate-nav>=0.6.1, <1.0",
+    "mkdocs-material>=9.4.8, <10.0.0",
+    "mkdocs-material-extensions>=1.3, <2.0",
+    "mkdocs-minify-plugin>=0.7.1, <1.0.0",
+    "mkdocs-redirects>=1.2.1, <2.0.0",
     "mkdocstrings[python]",                # add language-specific extensions
-    "pypandoc>=1.12, <2.0",                # if issue: install via conda install -c conda-forge pypandoc
+    "pypandoc>=1.13, <2.0",                # if issue: install via conda install -c conda-forge pypandoc
 ]
 
 [project.urls]
+homepage = "https://shescher.github.io/xai4mri/"
 documentation = "https://shescher.github.io/xai4mri/"
 repository = "https://github.com/SHEscher/xai4mri"
-changelog = "https://shescher.github.io/xai4mri/changelog/"
+changelog = "https://github.com/SHEscher/xai4mri/blob/main/CHANGELOG.md"
 
 [build-system]
 requires = ["setuptools>=65", "wheel"]
@@ -95,8 +95,10 @@ where = ["src"]
 include = ["xai4mri", "xai4mri.*"]
 exclude = ["tests"]
 
+# ALL ABOVE IS ADAPTATION OF THE FORMER setup.cfg
+# ALL BELOW WAS ALREADY PART OF pyproject.toml [Oct, 2022]
+
 [tool.pytest.ini_options]
-#addopts = "--cov=xai4mri"
 testpaths = ["tests"]
 
 [tool.mypy]
@@ -195,8 +197,8 @@ src = ["src/xai4mri", "tests"]
 include = ["*.py", "*.pyi", "**/pyproject.toml", "*.ipynb"]
 extend-exclude = ["data"]
 line-length = 119                                           # Same as flake8 and black
-target-version = "py38"                                     # assume Python >= 3.8
-output-format = "concise"                                   # "full", "concise", OR "grouped"
+target-version = "py39"                                     # assume Python >= 3.9
+output-format = "concise"                                   # "full" or "concise"
 preview = false                                             # true: Ruff will use unstable rules and fixes
 
 [tool.ruff.lint.extend-per-file-ignores]
@@ -208,6 +210,7 @@ preview = false                                             # true: Ruff will us
     "D103",
     "PLC2701",
 ] # ignore assert statements, and private objects in tests
+"prune_image.py" = ["RUF002"]
 
 [tool.ruff.format]
 docstring-code-format = true # default: false

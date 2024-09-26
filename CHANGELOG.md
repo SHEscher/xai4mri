@@ -1,9 +1,6 @@
 # Changelog
 
-## 0.0.0
+## 0.0.1
 
-* placeholder
-
-### Documentation
-
-* more to come ...
+* launch `xai4mri`
+* release first draft of [documentation](https://shescher.github.io/xai4mri/)

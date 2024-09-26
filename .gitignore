@@ -1,8 +1,13 @@
 # Bigger folders
 data
 literature
+models
 organisation
+publication
 visuals
+
+# Temporary files
+*temp_*.*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
