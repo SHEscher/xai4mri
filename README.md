@@ -4,8 +4,8 @@
 
 ![xai4mri logo](xai4mri.svg)
 
-![Last update](https://img.shields.io/badge/last_update-Sep_26,_2024-green)
-![Last update](https://img.shields.io/badge/version-v.0.0.0-blue)
+![Last update](https://img.shields.io/badge/last_update-Sep_27,_2024-green)
+![Last update](https://img.shields.io/badge/version-v.0.0.1-blue)
 
 ## What is `xai4mri`
 
