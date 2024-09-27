@@ -13,12 +13,12 @@
 It offers the following key functionalities:
 
 - **Data Integration**: Effortlessly import new MRI datasets and apply the models to generate accurate predictions.
-- **Model Loading**: load (pretrained) 3D-convolutional neural network models tailored for MRI predictions.
+- **Model Loading**: Load (pretrained) 3D-convolutional neural network models tailored for MRI predictions.
 - **Interpretation Tools**: Utilize analyzer tools,
 such as [Layer-wise Relevance Propagation (LRP)](https://doi.org/10.1038/s41467-019-08987-4),
 to interpret model predictions through intuitive heatmaps.
 
-With **xai4mri**, you can complement your MRI analysis pipeline, ensuring precise predictions and
+With `xai4mri`, you can complement your MRI analysis pipeline, ensuring precise predictions and
 insightful interpretations.
 
 ## Quick-start
