@@ -337,7 +337,7 @@ def plot_heatmap(
                     And, `kwargs` for `plot_mid_slice()` and `slice_through()` from `xai4mri.visualizer.visualize_mri`.
     :return: `plt.Figure` object of the heatmap plot.
     """
-    a = analyser_obj.copy().squeeze()
+    a = analyser_obj.copy().squeeze().astype(np.float32)
     mode = mode.lower()
     if mode not in {"triplet", "all"}:
         msg = "mode must be 'triplet', or 'all'!"
@@ -357,7 +357,7 @@ def plot_heatmap(
     # Render image
     colored_a = _apply_colormap(
         analyser_obj=a,
-        input_image=ipt,
+        input_image=ipt.squeeze().astype(np.float32),
         cmap_name=cmap_name,
         c_intensifier=cintensifier,
         clip_q=clipq,

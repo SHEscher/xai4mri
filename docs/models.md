@@ -191,7 +191,7 @@ model = PretrainedMRInetFLAIR.load_model(parent_folder="PATH/TO/STORE/MODEL/")
 !!! tip "Loading pretrained models"
     `load_model()` will first check the `parent_folder` for the model.
     If the model is not found, it will download the model from the `xai4mri` repository.
-    Hence, you can use the same code to download and load a pretrained model.
+    Hence, you can use the same code to download and load a pretrained model from memory.
     However, note, in case you apply the model to a new prediction task,
     the transferred model should be saved at a different location
     (see the `tf.keras.callback` approach in

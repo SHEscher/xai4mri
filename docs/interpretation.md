@@ -2,8 +2,9 @@
 
 Deep learning models have become an essential tool in image analysis, including
 medical image analysis, and MRI research in general. However, these models are
-often considered as *black boxes*, as they are built upon huge parameter spaces.
-This makes their decision-making process hard to explain.
+often considered as *black boxes*, as they are built upon huge parameter spaces
+and non-linear processing steps.
+These make their decision-making process hard to explain.
 
 New methods have been developed to interpret the predictions of deep learning models
 and to provide insights into their decision-making process. These methods are summerized
@@ -57,14 +58,14 @@ for input_img, y in test_data_gen:
 
     # Get model prediction
     prediction = model.predict(input_img)[0][0]
-    print(f"{prediction = :.2f}")
+    print(f"prediction = {prediction:.2f} | ground truth = {y[0]:.2f}")
 
     # Plot (mid) slice of each axis
     plot_heatmap(
-        ipt=input_img.squeeze().astype(float),  # (1, x, y, z, 1) -> (x, y, z)
-        analyser_obj=relevance_map.squeeze().astype(float),
+        ipt=input_img,
+        analyser_obj=relevance_map,
         mode="triplet",  # plot one slice of each axis, see doc-string for other options
-        # slice_idx=(15, 60, 45),  # specify which slices to plot, otherwise take mid-slices
+        # slice_idx=(15, 60, 45),  # uncomment: specify which slices to plot, otherwise take mid-slices
         fig_name=f"Relevance map of {y[0]:.0f}-years old, predicted as {prediction:.1f} from "
                  f"{mydata.mri_sequence.upper()}-MRIs",
     )

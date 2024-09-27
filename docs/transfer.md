@@ -34,14 +34,13 @@ The training of deep learning models can be a time-consuming process,
 and involves a lot of trial-and-errors to find the best hyperparameters,
 and training strategies.
 
-
 Building upon heuristics, experiences, and empirical evidence from the literature,
-there are the goals for `xai4mri`:
+there are the following goals for `xai4mri`:
 
 1. to estimate the success of transfer learning to new and small MRI datasets, and
 2. to suggest training strategies for model transfer
 
-To analyze a model and new dataset to estimate training parameters for transfer learning,
+To analyze models and datasets, with the goal to estimate training parameters for transfer learning,
 use the following function:
 
 ```python
@@ -69,7 +68,7 @@ analyse_model_and_data(model=pretrained_model, data=mydata)
 ### Reconstruct an existing model
 
 To apply a pretrained model to a new dataset might require reconstructing the model.
-That is, to adapt its output layer to requirements of the new prediction task.
+That is, to adapt its output layer to the requirements of the new prediction task.
 
 For this, use the following function:
 
