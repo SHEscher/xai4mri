@@ -31,8 +31,7 @@ and apply them to new datasets with fewer samples.
 ### Analyze a dataset and a candidate model
 
 The training of deep learning models can be a time-consuming process,
-and involves a lot of trial-and-errors to find the best hyperparameters,
-and training strategies.
+and involves a lot of trial-and-errors to find the best hyperparameters.
 
 Building upon heuristics, experiences, and empirical evidence from the literature,
 there are the following goals for `xai4mri`:

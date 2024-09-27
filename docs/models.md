@@ -64,7 +64,7 @@ All models are `TensorFlow` / `Keras` models (`keras.Sequential`) and can be use
 ## Train a model for MRI prediction
 
 To train a model, we follow the standard procedure of `TensorFlow` / `Keras` models.
-Using the `xai4mri` data loader, you can easily load your MRI data and train the model
+Using the `xai4mri` data loader, you can load your MRI data and train the model
 (see [Create a data split for model training and evaluation](dataloading.md#create-a-data-split-for-model-training-and-evaluation)).
 
 ```python

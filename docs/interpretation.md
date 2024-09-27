@@ -7,8 +7,8 @@ and non-linear processing steps.
 These make their decision-making process hard to explain.
 
 New methods have been developed to interpret the predictions of deep learning models
-and to provide insights into their decision-making process. These methods are summerized
-under the term *explainable artificial intelligence* (XAI).
+and to provide insights into their decision-making process.
+These methods are summarized under the term *explainable artificial intelligence* (XAI).
 
 The `xai4mri` package offers a set of tools to apply XAI methods to analyze
 the predictions of deep learning models for MRI-based tasks.
@@ -81,7 +81,7 @@ for input_img, y in test_data_gen:
 ## Reverse pruning: Bringing model input and relevance maps back to the NIfTI format
 
 !!! inline end tip "Reverse pruning"
-    *Reverse pruning* is useful to compare relevance maps with other statistical maps or atlases in form of NIfTIs.
+    *Reverse pruning* is useful to compare relevance maps with other statistical maps or atlases in the form of NIfTIs.
 
 If MR images have been pruned for more efficient model training
 (see [Implement your own dataset class](dataloading.md#implement-your-own-dataset-class)),

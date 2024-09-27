@@ -81,7 +81,7 @@ class MyStudy(BaseDataSet):
 ```
 
 ??? note "About **kwargs in `BaseDataSet.__init__()`"
-    Find details to addtional `kwargs` in docs of `_load_data_as_full_array()` or `_load_data_as_file_paths()` in
+    Find details to additional `kwargs` in docs of `_load_data_as_full_array()` or `_load_data_as_file_paths()` in
     `xai4mri.dataloader.mri_dataloader`.
 
 `BaseDataSet` provides several attributes and methods, see details in [API reference](reference/dataloader/datasets.md)

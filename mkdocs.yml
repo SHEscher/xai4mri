@@ -82,7 +82,7 @@ extra_css:
 - css/material.css
 - css/mkdocstrings.css
 
-# Sets the markdown extensions to use in the site.
+# Sets the Markdown extensions to use in the site.
 markdown_extensions:
 - attr_list  # Allows adding attributes to headers, paragraphs, and other elements in Markdown.
 - admonition  # Adds admonition blocks, which are like callout boxes that highlight important information.
