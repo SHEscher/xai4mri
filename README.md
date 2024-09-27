@@ -33,7 +33,7 @@ Get started with `xai4mri` in Python:
 import xai4mri as xai
 ```
 
-Visit the [**documentation**](https://shescher.github.io/xai4mri/), for detailed information.
+Visit the [**documentation**](https://shescher.github.io/xai4mri/overview), for detailed information.
 
 ## Citation
 
