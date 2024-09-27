@@ -42,8 +42,6 @@ theme:
   # custom_dir: docs/custom_dir # add subfolder to overwrite
   features:
   - announce.dismiss  # Allows users to dismiss announcement banners or messages.
-  - content.action.edit  # Provides a button or link to edit the current page's source code.
-  - content.action.view  # Provides a button or link to view the current page's source code.
   - content.code.annotate  # Allows users to add annotations or comments to code blocks.
   - content.code.copy  # Provides a button or link to copy code blocks to the clipboard.
   - content.tooltips  # Displays tooltips when hovering over certain elements.
