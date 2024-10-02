@@ -30,6 +30,9 @@ that are most relevant for the model's prediction. Then, use the `plot_heatmap()
 to visualize the relevance map:
 
 ```python
+import tensorflow as tf
+tf.compat.v1.disable_eager_execution()  # required for iNNvestigate
+
 from xai4mri.model.interpreter import analyze_model
 from xai4mri.visualizer import plot_heatmap
 
